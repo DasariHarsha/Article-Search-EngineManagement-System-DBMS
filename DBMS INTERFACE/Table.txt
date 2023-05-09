@@ -1,0 +1,22 @@
+Create table Reg_user_id_Ph(User_id varchar(10),ph numeric(10),PRIMARY KEY(User_id,ph));
+Create table General_user_id_Ph(General_user_id varchar(10),ph numeric(10),PRIMARY KEY(General_user_id,ph));
+Create table Admin_id_Ph(Admin_id varchar(10),ph numeric(10),PRIMARY KEY(Admin_id,ph));
+create table Schemes(Scheme_id varchar(10),Scheme_name varchar(15),Scheme_price numeric(10), PRIMARY KEY(Scheme_id));
+create table Renewal (User_id varchar(10),Scheme_id varchar(10),Date_of_renewal DATE,Date_of_expiry DATE,Total_amount numeric(6),PRIMARY KEY(User_id),FOREIGN KEY(Scheme_id) REFERENCES Schemes);
+create table Article_comment_desc(Article_id varchar(10),comment_desc varchar(100), PRIMARY KEY(Article_id,comment_desc));
+Create table General_users_comment(General_user_id varchar(10),comment_desc varchar(100),PRIMARY KEY(General_user_id,comment_desc));
+create table Users(General_user_id varchar(10), F_name varchar(30), L_name varchar(30),Password varchar(20),Email_id varchar(30),Track_id varchar(10),PRIMARY KEY(General_user_id));
+create table Article_comment(Article_id varchar(10),F_name varchar(30),L_name varchar(30),reg_user_id varchar(10),General_user_id varchar(10),PRIMARY KEY(Article_id),FOREIGN KEY(General_user_id) REFERENCES Users);
+Create table Search_History(Track_id varchar(10),Search_time varchar(10), User_Search_Keyword varchar(30), Search_date DATE, Category_id varchar(10),PRIMARY KEY(Track_id,Search_time));
+create table Pincode(pincode numeric(6),state varchar(20),country varchar(20),city varchar(20),PRIMARY KEY (pincode));
+create table Reg_users(User_id varchar(10),F_name Varchar(30),L_name varchar(30),User_password varchar(20),email varchar(30), pincode numeric(6),house_number varchar(20), street_name varchar(20),article_count numeric(6),Track_id varchar(10),DOB DATE, PRIMARY KEY (User_id),FOREIGN KEY(pincode) REFERENCES Pincode);
+create table Payment (Payment_id Varchar(10),Pay_date DATE,User_id varchar(10),Payment_type varchar(10),card_number varchar(20),Expiry_year DATE,Total_amount numeric(10),PRIMARY KEY (Payment_id),FOREIGN KEY(User_id) REFERENCES Reg_users);
+create table Category(Category_id Varchar(10),category_type varchar(20), PRIMARY KEY(Category_id));
+Create table Admin_details(Admin_id varchar(10), Admin_password varchar(20), F_name varchar(30),L_name varchar(30), Category_id varchar(10), PRIMARY KEY (Admin_id), FOREIGN KEY(Category_id) REFERENCES Category);
+create table Track_payment(Payment_id varchar(10), Admin_id varchar(10), Payment_status varchar(15),PRIMARY KEY (Payment_id),FOREIGN KEY(Admin_id) REFERENCES Admin_details,FOREIGN KEY(Payment_id) REFERENCES Payment);
+Create table Multimedia_rep2(Admin_id varchar(10), Article_id varchar(10),Approval_Status varchar(10),Approval_id varchar(10), PRIMARY KEY (Article_id,Admin_id), FOREIGN KEY(Admin_id) REFERENCES Admin_details);
+CREATE TABLE Multimedia_rep1 (Article_id VARCHAR(10), Article_name varchar(30),Category_id varchar(10),Search_keyword varchar(30)
+,Published_date DATE,Edit_date DATE,Multimedia_type varchar(15),User_id VARCHAR(10), PRIMARY KEY (Article_id),FOREIGN KEY(Category_id) REFERENCES Category);
+create table Reg_users_article_id(User_id varchar(10),Article_id varchar(10),PRIMARY KEY(User_id,Article_id),FOREIGN KEY(Article_id) REFERENCES Multimedia_rep1);
+create table Rating(Rating_id varchar(10),User_id varchar(10),Article_id varchar(10),Article_rating numeric(6),PRIMARY KEY(Rating_id),FOREIGN KEY(Article_id) REFERENCES Multimedia_rep1,FOREIGN KEY(User_id) REFERENCES Reg_users);
+

@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Admin</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/c0fc838bea.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="article_system_css.css">
+</head>
+  <body>
+     <!---Nav bar-->
+      <nav class="navbar navbar-expand-md navbar-light">
+<button class="navbar-toggler ml-auto mb-2 bg-light" type="button" 
+data-toggle="collapse" data-target="#navbar">
+<span class="navbar-toggler-icon"></span>
+
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+    <div class="container-fluid">
+        <div class="row">
+            <!---Sidebar-->
+            <div class=" col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+                <a href="#" class="navbar-brand text-white d-block
+                mx-auto text-center py-3 mb-4"><i class="fas fa-cannabis text-light fa-3x"></i></a>
+                <div class="bottom-border pb-3">
+                    <img src="data:image/jpeg;base64,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" width="50" class="rounded-circle mr-3">
+                    <a href="Home.html" class="text-white ">Admin</a>
+                </div>
+                <ul class="navbar-nav flex-column mt-4">
+                   <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    current"><i class="fas fa-home text-light fa-lg mr-3"></i>
+                Dashboard</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>
+                Profile</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>
+                inbox</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fa fa-history text-light fa-lg mr-3"></i>
+                History</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fa fa-check text-light fa-lg mr-3"></i>
+                Approved Articles</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fa fa-credit-card text-light fa-lg mr-3"></i>
+                Paymet</a></li>
+                
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>
+                Settings</a></li>
+                <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2
+                    sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i>
+                documentation</a></li>
+                </ul>
+
+            </div>
+            <!---end of side bar-->
+            <!---Top Nav-->
+<div class="col-xl-10 col-lg-9 col-md-8 ml-auto top-bar fixed-top py-2 top-nav">
+    <div class="row align-item-center">
+   <div class="col-md-4">
+ <h4 class="text-light text-uppercase mb-0">Admin Dashboard</h4>
+   </div>
+   <div class="col-md-5">
+<form>
+    <div class="input-group">
+        <input type="text" class="form-control search-input" placeholder="search" >
+        <button type="button" class="btn btn-white search-button">
+            <i class="fas fa-search "></i>
+        </button>
+    </div>
+</form>
+   </div>
+   <div class="col-md-3">
+       <ul class="navbar-nav">
+           <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet">
+            <i class="fas fa-comments text-light fa-lg"></i></a>
+            <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet">
+             <i class="fas fa-bell text-light fa-lg"></i></a>
+             <li class="nav-item ml-md-auto"><a href="#"class="nav-link"
+            data-toggle="modal" data-target="#sign-out">
+             <i class="fas fa-sign-out-alt text-danger fa-lg"></i></a>
+       </ul>
+   </div>
+        </div>
+</div>
+            <!---End of Top Nav-->
+        </div>
+    </div>
+</div>
+      </nav>
+      <!----End of Navbar-->
+      <!---Modal-->
+      <div class="modal" id="sign-out">
+          <div class="modal-dialog">
+             <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title">Signout</h4>
+                <button type="button" class="close" data-dismiss="modal"
+                 >&times;</button>
+                </div>  
+                <div class="modal-body">
+                    press the button
+                </div>
+                <div class="modal-footer">
+         <button type="button" class="btn btn-success" data-dismiss="modal">
+             Leave    </button>
+             <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    Cancel    </button>
+                </div>
+              </div>
+          </div>
+      </div>
+      <!---End of Modal-->
+      <!---Cards-->
+    <section>
+ <div class="container-fluid">
+     <div class="row">
+         <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+             <div class="row pt-md-5 mt-md-3 mb-5">
+                 <div class="col-xl-3 col-sm-6 p-2">
+                     <div class="card card-common">
+                         <div class="card-body">
+                             <div class="d-flex justify-content-between">
+                                 <i class="fa fa-check fa-3x text-info"></i>
+                                 <div class="text-right text-dark">
+                                     <h5>Approved</h5>
+                                     <h3>2000</h3>
+                                 </div>
+                             </div>
+                         </div>
+            <div class="card-footer text-dark">
+                <i class="fas fa-spinner fa-pulse text-info mr-3"></i>
+                <span>Updating</span>
+            </div>
+                     </div>
+
+                 </div>
+                 <div class="col-xl-3 col-sm-6 p-2">
+                        <div class="card card-common">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <i class="fa fa-ban fa-3x text-success"></i>
+                                        <div class="text-right text-dark">
+                                            <h5>Reject</h5>
+                                            <h3>100</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                   <div class="card-footer text-dark">
+                    <i class="fas fa-spinner fa-pulse text-success mr-3"></i>
+                       <span>Updating</span>
+                   </div>
+                            </div>
+                     
+                    </div>
+                    <div class="col-xl-3 col-sm-6 p-2">
+                            <div class="card card-common">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <i class="fas fa-users fa-3x text-warning"></i>
+                                            <div class="text-right text-dark">
+                                                <h5>Users</h5>
+                                                <h3>3,000.00</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                       <div class="card-footer text-dark">
+                        <i class="fas fa-spinner fa-pulse text-warning mr-3"></i>
+                           <span>Updating</span>
+                       </div>
+                                </div>
+                     
+                        </div>
+                        <div class="col-xl-3 col-sm-6 p-2">
+                                <div class="card card-common">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <i class="fas fa-chart-line fa-3x text-danger"></i>
+                                                <div class="text-right text-dark">
+                                                    <h5>Visitors</h5>
+                                                    <h3>2,000.00</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                           <div class="card-footer text-dark">
+                            <i class="fas fa-spinner fa-pulse text-danger mr-3"></i>
+                               <span>Updating</span>
+                           </div>
+                                    </div>
+                     
+                            </div>
+             </div>
+         </div>
+     </div>
+ </div>
+     
+    </section>
+
+      <!---End of Cards-->
+      <!--table-->
+<section>
+    <div class="container-fluid">
+        <div class="row mb-5">
+            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+                <div class="row align-items-center">
+                     <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+                       <h3 class="text-dark text-center mb-3">
+                           Search History
+                       </h3> 
+                       <table class="table table-striped bg-light text-center">
+                           <thead>
+                               <tr class="text-dark">
+                                  
+                                   <th>User_id</th>
+                                   <th>Search words</th>
+                                   <th>Time</th>
+                                   <th>Date</th>
+                                   <th>Find</th>
+                                   
+
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <th>1</th>
+                                   <td>Bankrupt</td>
+                                   <td>10:30:22 AM</td>
+                                   <td>10-09-2019</td>
+            <td><button type="button" class="btn btn-danger btn-sm">Search More</button></td>
+                               </tr>
+                               <tr>
+                                    <th>2</th>
+                                    <td>corona</td>
+                                    <td>06:10:05 PM</td>
+                                    <td>10-09-2019</td>
+             <td><button type="button" class="btn btn-danger btn-sm">Search More</button></td>
+                                </tr>
+                                <tr>
+                                        <th>3</th>
+                                        <td>floods</td>
+                                        <td>11:12:05 AM</td>
+                                        <td>10-09-2019</td>
+                 <td><button type="button" class="btn btn-danger btn-sm">Search More</button></td>
+                                    </tr>
+                                    <tr>
+                                            <th>4</th>
+                                            <td>Intresting Facts</td>
+                                            <td>05:07:56 PM</td>
+                                            <td>10-09-2019</td>
+                     <td><button type="button" class="btn btn-danger btn-sm">Search More</button></td>
+                                        </tr>
+                           </tbody>
+                       </table>
+                       <!---Pagination-->
+                       <nav class="color">
+                           <ul class="pagination justify-content-center">
+                               <li class="page-item">
+                                   <a href="#" class="page-link py-2 px-3">
+                                       <span>&laquo;</span>
+                                   </a>
+                               </li>
+                               <li class="page-item active">
+                                    <a href="#" class="page-link py-2 px-3">
+                                        1
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                        <a href="#" class="page-link py-2 px-3">
+                                            2
+                                        </a>
+                                    </li>
+                                    <li class="page-item">
+                                            <a href="#" class="page-link py-2 px-3">
+                                                3
+                                            </a>
+                                        </li>
+                               <li class="page-item">
+                                    <a href="#" class="page-link py-2 px-3">
+                                        <span>&raquo;</span>
+                                    </a>
+                                </li>
+
+                           </ul>
+                       </nav>
+
+
+
+
+                       <!---End of Pagination-->
+                      </div>
+                <div class="col-xl-6 col-12">
+        <h3 class="text-dark text-center mb-3">Recent Payments</h3>
+        <table class="table table-color  table-hover">
+                <thead>
+                        <tr class="text-dark">
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Status</th>
+
+                        </tr>
+                    </thead> 
+                    <tbody>
+                            <tr>
+                                    <th>1</th>
+                                    <td>Mike</td>
+                                    <td>$60</td>
+                                    <td>17-12-2021</td>
+             <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                                </tr>  
+                                <tr>
+                                        <th>2</th>
+                                        <td>Mark</td>
+                                        <td>$5</td>
+                                        <td>17-09-2021</td>
+                 <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                            <th>3</th>
+                                            <td>David</td>
+                                            <td>$16</td>
+                                            <td>17-09-2021</td>
+                     <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                                        </tr>
+                                        <tr>
+                                                <th>4</th>
+                                                <td>William</td>
+                                                <td>$7.5</td>
+                                                <td>17-09-2021</td>
+                         <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                                            </tr>
+                                            <tr>
+                                                    <th>5</th>
+                                                    <td>Joseph</td>
+                                                    <td>$8.9</td>
+                                                    <td>10-09-2021</td>
+                             <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                                                </tr>
+                    </tbody>
+        </table>
+        <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a href="#" class="page-link py-2 px-3">
+                            <span>Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item active">
+                         <a href="#" class="page-link py-2 px-3">
+                             1
+                         </a>
+                     </li>
+                     <li class="page-item">
+                             <a href="#" class="page-link py-2 px-3">
+                                 2
+                             </a>
+                         </li>
+                         <li class="page-item">
+                                 <a href="#" class="page-link py-2 px-3">
+                                     3
+                                 </a>
+                             </li>
+                    <li class="page-item">
+                         <a href="#" class="page-link py-2 px-3">
+                             <span>Next</span>
+                         </a>
+                     </li>
+
+                </ul>
+            </nav>
+
+                        
+                         </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+      <!--End of table-->
+      <!---Quick post-->
+      <section>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+                      <div class="row">
+                            <div class="col-xl-6 col-12">
+                                    <h4 class="text-dark p-3 mb-3">Articles</h4>
+                                    <div class="container-fluid bg-1">
+                                        <div class="row py-3 mb-4 task-border align-items-center">
+                                            <div class="col-1">
+                                                <input type="checkbox" checked>
+                                
+                                            </div>
+                                            <div class="col-sm-9 col-8">
+                                                Lorem ipsum dolor sit amet, consectetur 
+                                                adipisicing elit.
+                                            </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Edit"
+                                data-placement="top">
+                                <i class="fas fa-edit fa-lg text-success mr-2">
+                                </i></a>
+                                            </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Delete"
+                                data-placement="top">
+                                <i class="fas fa-trash-alt fa-lg text-danger">
+                                </i></a>
+                                     </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid bg-2">
+                                      <div class="row py-3 mb-4 task-border align-items-center">
+                                          <div class="col-1">
+                                              <input type="checkbox" checked>
+                                
+                                          </div>
+                                          <div class="col-sm-9 col-8">
+                                              Lorem ipsum dolor sit amet, consectetur 
+                                              adipisicing elit.
+                                          </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Edit"
+                                data-placement="top">
+                                <i class="fas fa-edit fa-lg text-success mr-2">
+                                </i></a>
+                                          </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Delete"
+                                data-placement="top">
+                                <i class="fas fa-trash-alt fa-lg text-danger">
+                                </i></a>
+                                   </div>
+                                      </div>
+                                  </div>
+                                  <div class="container-fluid bg-3">
+                                      <div class="row py-3 mb-4 task-border align-items-center">
+                                          <div class="col-1">
+                                              <input type="checkbox" checked>
+                                
+                                          </div>
+                                          <div class="col-sm-9 col-8">
+                                              Lorem ipsum dolor sit amet, consectetur 
+                                              adipisicing elit.
+                                          </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Edit"
+                                data-placement="top">
+                                <i class="fas fa-edit fa-lg text-success mr-2">
+                                </i></a>
+                                          </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Delete"
+                                data-placement="top">
+                                <i class="fas fa-trash-alt fa-lg text-danger">
+                                </i></a>
+                                   </div>
+                                      </div>
+                                  </div>
+                                  <div class="container-fluid bg-4">
+                                      <div class="row py-3 mb-4 task-border align-items-center">
+                                          <div class="col-1">
+                                              <input type="checkbox" checked>
+                                
+                                          </div>
+                                          <div class="col-sm-9 col-8">
+                                              Lorem ipsum dolor sit amet, consectetur 
+                                              adipisicing elit.
+                                          </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Edit"
+                                data-placement="top">
+                                <i class="fas fa-edit fa-lg text-success mr-2">
+                                </i></a>
+                                          </div>
+                                <div class="col-1">
+                                <a href="#"data-toggle="tooltip" title="Delete"
+                                data-placement="top">
+                                <i class="fas fa-trash-alt fa-lg text-danger">
+                                </i></a>
+                                   </div>
+                                      </div>
+                                  </div>
+                                  </div>
+                                  <!---End of Task List-->
+            <!---Quick Post--->                      
+         <div class="col-xl-6 mt-5">
+            <div class="card rounded">
+             <div class="card-body">
+                 <h5 class="text-dark text-center mb-4">
+                     Quick Status Post
+                   </h5>
+                <ul class="list-inline text-center py-3">
+                 <li class="list-inline-item">
+                     <a href="#"> <i class="fas fa-pencil-alt text-success"></i>
+                    <span class="h6 text-dark">Status</span>
+                    </a>
+                    </li>
+                    <li class="list-inline-item mr-4">
+                            <a href="#"> <i class="fas fa-camera text-info"></i>
+                           <span class="h6 text-dark">Photo</span>
+                           </a>
+                           </li>
+                           <li class="list-inline-item mr-4">
+                                <a href="#"> <i class="fas fa-map-marker text-danger"></i>
+                               <span class="h6 text-dark">Check In</span>
+                               </a>
+                               </li>
+
+                      </ul>
+                      <form>
+                          <div class="form-group">
+                              <input type="text" class="form-control py-2 mb-3" 
+                              placeholder="Your Status">
+                              <button type="button" class="btn btn-block text-uppercase 
+                              font-weight-bold text-light bg-button py-2 mb-5">Submit Post</button>
+                          </div>
+                      </form>
+                      <div class="row align-items-center mb-5">
+                          <div class="col-6">
+                              <div class="card bg-light">
+                                  <i class="far fa-calendar-alt fa-8x
+                                  text-info d-block m-auto py-3"></i>
+                                  <div class="card-body">
+                           <p class="card-text text-center font-weight-bold 
+                           text-uppercase">sat,Dec 19</p>
+                                  </div>
+                              </div>
+
+                          </div>
+                          <div class="col-6">
+                                <div class="card bg-light">
+                                        <i class="far fa-clock fa-8x
+                                        text-danger d-block m-auto py-3"></i>
+                                        <div class="card-body">
+                                 <p class="card-text text-center font-weight-bold 
+                                 text-uppercase">2:15PM</p>
+                                        </div>
+                                    </div>
+                            </div>
+                      </div>
+
+                </div>
+              </div>
+
+
+       </div>
+           </div>
+       </div>
+              </div>
+
+          </div>
+      </section>
+      
+      <!---End of Quick post-->
+      <!----Footer-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto mt-3 bd-bottom">
+            <div class="row border-top pt-3">
+                <div class="col-lg-6 text-center">
+                    <ul class="list-inline">
+                <li class="list-inline-item mr-2">
+                    <a href="#" class="text-success">
+                       Debug entity
+                    </a>
+                </li>
+                <li class="list-inline-item mr-2">
+                        <a href="#" class="text-success">
+                            About
+                        </a>
+                    </li>
+                    <li class="list-inline-item mr-2">
+                            <a href="#" class="text-success">
+                                Support
+                            </a>
+                        </li>
+                        <li class="list-inline-item mr-2">
+                                <a href="#" class="text-success">
+                                    Blog
+                                </a>
+                            </li>
+                </ul>
+             </div>
+                <div class="col-lg-6 text-center text-success">
+                    <p>&copy; 2021 Copyright</p>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+      <!---End of Footer-->
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
